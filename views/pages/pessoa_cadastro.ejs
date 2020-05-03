@@ -6,31 +6,31 @@
       cadastro = true
     }
   %>
-    <p class="nome_modulo"><%= cadastro ? 'Pessoas - Cadastro' : 'Pessoas - Edição' %></p>
-    <br/>
-      <form action="" method="POST">
-        <table>
-          <% if(!cadastro){ %>
-            <tr>
-              <td class="form_label">ID:</td>
-              <td><input class="form_dado_leitura" type="text" size="3" value="<%= pessoa.id %>" readonly /></td>
-            </tr>
-          <% } %>
 
+  <p class="nome_modulo"><%= cadastro ? 'Pessoas - Cadastro' : 'Pessoas - Edição' %></p>
+  <br/>
+    <form action="" method="POST">
+      <table>
+        <% if(!cadastro){ %>
           <tr>
-            <td class="form_label">Nome:</td>
-            <td><input name="nome" type="text" size="50" value="<%= typeof pessoa === 'undefined' ? '' : pessoa.nome %>" /></td>
+            <td class="form_label">ID:</td>
+            <td><input class="form_dado_leitura" type="text" size="3" value="<%= pessoa.id %>" readonly /></td>
           </tr>
-          <tr>
-            <td class="form_label">Apelido:</td>
-            <td><input name="apelido" type="text" size="8" maxlength="7" value="<%= typeof pessoa === 'undefined' ? '' : pessoa.apelido %>" /></td>
-          </tr>
-        </table>
-        <br />
-        <table>
-          <tr>
-            <td><button onclick="window.history.back()">Voltar</button></td>
-            <td><input value="Gravar" type="submit" /></td>
-          </tr>
-        </table>
-      </form>
+        <% } %>
+        <tr>
+          <td class="form_label">Nome:</td>
+          <td><input name="nome" type="text" size="50" value="<%= typeof pessoa === 'undefined' ? '' : pessoa.nome %>" /></td>
+        </tr>
+        <tr>
+          <td class="form_label">Apelido:</td>
+          <td><input name="apelido" type="text" size="8" maxlength="7" value="<%= typeof pessoa === 'undefined' ? '' : pessoa.apelido %>" /></td>
+        </tr>
+      </table>
+      <br />
+      <table>
+        <tr>
+          <td><button onclick="window.history.back()">Voltar</button></td>
+          <td><input value="Gravar" type="submit" /></td>
+        </tr>
+      </table>
+    </form>

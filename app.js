@@ -30,5 +30,5 @@ func_pessoa(app)
 // main
 const porta = 1234;
 app.listen(porta, function() {
-  console.log('NN Investimentos v0.1\nServidor rodando na porta %s...', porta);
+  console.log('CRUD NODE\nServidor rodando na porta %s...', porta);
 })

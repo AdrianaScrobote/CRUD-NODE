@@ -1,27 +1,34 @@
 <%- contentFor('body') %>
-      <p class="nome_modulo">Pessoas - Listar</p>
 
-      <% if(pessoas.length > 0){ %>
-      <table>
-        <tr class="listar_linha_cabecalho">
-          <td class="listar_cabecalho_selec"></td>
-          <td class="listar_cel">Nome</td>
-          <td class="listar_cel">Apelido</td>
-        </tr>
-        <% for (var i = 0; i < pessoas.length; i++) { %>
-        <tr class="listar_linha" onclick="window.location = '/pessoa/<%= pessoas[i].id %>'"
-            onmouseenter="this.children[0].style.color = 'black'" onmouseleave="this.children[0].style.color = 'transparent'">
-          <td class="listar_cel_seta">&gt;</td>
+  <head>
+    <script type="text/javascript" src="/js/pessoa.js"></script>
+  </head>
+
+  <p class="nome_modulo">Pessoas - Listar</p>
+
+  <% if(pessoas.length > 0){ %>
+    <table>
+      <tr class="listar_linha_cabecalho">
+        <td class="listar_cel">ID</td>
+        <td class="listar_cel">Nome</td>
+        <td class="listar_cel">Apelido</td>
+      </tr>
+      <% for (var i = 0; i < pessoas.length; i++) { %>
+        <tr class="listar_linha">
+          <td class="listar_cel id"><%= pessoas[i].id %></td>
           <td class="listar_cel"><%= pessoas[i].nome %></td>
           <td class="listar_cel"><%= pessoas[i].apelido %></td>
         </tr>
-        <% } %>
+      <% } %>
         <tr class="listar_linha_rodape">
           <td colspan="7">Mostrando <%= n_paginas.por_pagina %> de <%= n_paginas.total %> registros.</td>
         </tr>
-      </table>
-      <%} else{ %>
-        <p>Não há pessoas cadastradas.</p>
-      <% } %>
-      <br/>
-      <a href="/pessoa"><button>Cadastrar</button></a>
+    </table>
+  <%} else{ %>
+    <p>Não há pessoas cadastradas.</p>
+  <% } %>
+  
+  <br/>
+  <a href="/pessoa"><button>Cadastrar</button></a>
+  <button id='editar' style="display:none">Editar</button>
+  <button id='excluir' style="display:none">Excluir</button>
